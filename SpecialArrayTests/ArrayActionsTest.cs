@@ -23,5 +23,21 @@ namespace SpecialArrayTests
             array.Items.Should().BeEquivalentTo(expectedItems);
 
         }
+
+        [TestMethod]
+        public void SortArrayWithThreeElementsShouldSortTheArray()
+        {
+            // Arrange
+            var items = new List<int>(new[] { 2, 3, 1 });
+            SpecialArray.Collections.SpecialArray array = SpecialArray.Collections.SpecialArray.From(items);
+            var expectedItems = new List<int>(new[] { 1,2,3 });
+
+            // Act
+            ArrayActions.Sort(array);
+
+            // Assert 
+            array.Items.Should().BeEquivalentTo(expectedItems);
+
+        }
     }
 }

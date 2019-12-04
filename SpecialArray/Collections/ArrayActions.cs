@@ -10,9 +10,12 @@ namespace SpecialArray.Collections
         {
             for (int index = array.Size() - 1; index > 0; index--)
             {
-                if (array[0] > array[index])
+                for (int subIndex = index - 1; subIndex > 0; subIndex--)
                 {
-                    array.Swap(index);
+                    if (array[0] > array[index])
+                    {
+                        array.Swap(index);
+                    }
                 }
             }
         }
