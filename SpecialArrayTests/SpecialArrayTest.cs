@@ -23,5 +23,20 @@ namespace SpecialArrayTests
             // Assert 
             actual.Should().Be(expected);
         }
+
+        [TestMethod]
+        public void SpecialArrayShouldReturnSize()
+        {
+            // Arrange
+            var items = new List<int>(new[] { 1, 3, 5, 7 });
+            SpecialArray.Collections.SpecialArray array = SpecialArray.Collections.SpecialArray.From(items);
+            const int expected = 4;
+
+            // Act
+            int actual = array.Size();
+
+            // Assert 
+            actual.Should().Be(expected);
+        }
     }
 }
