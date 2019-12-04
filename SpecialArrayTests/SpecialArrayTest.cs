@@ -38,5 +38,21 @@ namespace SpecialArrayTests
             // Assert 
             actual.Should().Be(expected);
         }
+
+        [TestMethod]
+        public void SpecialArrayShouldSwapElements()
+        {
+            // Arrange
+            var items = new List<int>(new[] { 1, 3, 5, 7 });
+            SpecialArray.Collections.SpecialArray array = SpecialArray.Collections.SpecialArray.From(items);
+            var expectedItems = new List<int>(new[] { 5, 3, 1, 7 });
+            const int swapIndex = 2;
+
+            // Act
+            array.Swap(swapIndex);
+
+            // Assert 
+            array.Items.Should().BeEquivalentTo(expectedItems);
+        }
     }
 }

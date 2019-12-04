@@ -9,6 +9,11 @@ namespace SpecialArray.Collections
     {
         private List<int> items;
 
+        public List<int> Items
+        {
+            get { return items; }
+        }
+
         private SpecialArray(List<int> input)
         {
             items = new List<int>(input);
