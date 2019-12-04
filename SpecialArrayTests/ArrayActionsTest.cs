@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -54,6 +55,19 @@ namespace SpecialArrayTests
             // Assert 
             array.Items.Should().BeEquivalentTo(expectedItems);
 
+        }
+
+        [TestMethod]
+        public void SortWithNullArrayShouldThrowException()
+        {
+            // Arrange
+            SpecialArray.Collections.SpecialArray array = null;
+
+            // Act
+            Action action = () => ArrayActions.Sort(array);
+
+            // Assert 
+            action.Should().Throw<ArgumentException>().WithMessage("Cannot sort a null SpecialArray");
         }
     }
 }
