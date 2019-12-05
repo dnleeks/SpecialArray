@@ -15,11 +15,12 @@ namespace SpecialArray.Collections
 
             for (int index = array.Size() - 1; index > 0; index--)
             {
-                for (int subIndex = index - 1; subIndex > 0; subIndex--)
+                for (int subIndex = index - 1; subIndex >= 0; subIndex--)
                 {
-                    if (array[0] > array[index])
+                    if (array[subIndex] > array[index])
                     {
                         array.Swap(index);
+                        array.Swap(subIndex);
                     }
                 }
             }

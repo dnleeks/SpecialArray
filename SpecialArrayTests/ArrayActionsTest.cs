@@ -15,13 +15,12 @@ namespace SpecialArrayTests
             // Arrange
             var items = new List<int>(new[] { 3,1 });
             SpecialArray.Collections.SpecialArray array = SpecialArray.Collections.SpecialArray.From(items);
-            var expectedItems = new List<int>(new[] { 1,3});
 
             // Act
             ArrayActions.Sort(array);
 
             // Assert 
-            array.Items.Should().BeEquivalentTo(expectedItems);
+            array.Items.Should().BeInAscendingOrder();
 
         }
 
@@ -37,7 +36,7 @@ namespace SpecialArrayTests
             ArrayActions.Sort(array);
 
             // Assert 
-            array.Items.Should().BeEquivalentTo(expectedItems);
+            array.Items.Should().BeInAscendingOrder();
 
         }
 
@@ -53,7 +52,7 @@ namespace SpecialArrayTests
             ArrayActions.Sort(array);
 
             // Assert 
-            array.Items.Should().BeEquivalentTo(expectedItems);
+            array.Items.Should().BeInAscendingOrder();
 
         }
 
@@ -69,5 +68,22 @@ namespace SpecialArrayTests
             // Assert 
             action.Should().Throw<ArgumentException>().WithMessage("Cannot sort a null SpecialArray");
         }
+
+        [TestMethod]
+        public void SortArrayWithThreeElementsSecondPermutationShouldSortTheArray()
+        {
+            // Arrange
+            var items = new List<int>(new[] { 3, 1, 2 });
+            SpecialArray.Collections.SpecialArray array = SpecialArray.Collections.SpecialArray.From(items);
+            var expectedItems = new List<int>(new[] { 1, 2, 3 });
+
+            // Act
+            ArrayActions.Sort(array);
+
+            // Assert 
+            array.Items.Should().BeInAscendingOrder();
+
+        }
+
     }
 }
